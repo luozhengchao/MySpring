@@ -11,10 +11,13 @@ public interface BeanFactory {
 
     Object getBean(String beanName) throws BeansException;
 
-    void registerBeanDefinition(BeanDefinition beanDefinition);
-
     boolean containsBean(String beanName);
 
-    void registerBean(String beanName, Object bean);
+
+    boolean isSingletonBean(String name);
+
+    boolean isProperty(String name);
+
+    Class<?> getType(String beanName);
 
 }

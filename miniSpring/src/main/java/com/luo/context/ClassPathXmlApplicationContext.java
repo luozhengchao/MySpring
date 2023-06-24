@@ -19,7 +19,7 @@ import com.luo.core.xml.ClassPathXmlResource;
  * 1.解析外部xml文件并保存到beanDefinition中
  * 2.创建对象
  */
-public class ClassPathXmlApplicationContext implements BeanFactory {
+public class ClassPathXmlApplicationContext implements BeanFactory, ApplicationEventPublisher {
 
     private final List<BeanDefinition> beanDefinitions = new ArrayList<>();
     private final Map<String, Object> singletons = new HashMap<>();
@@ -46,17 +46,27 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
 
 
     @Override
-    public void registerBeanDefinition(BeanDefinition beanDefinition) {
-        this.beanFactory.registerBeanDefinition(beanDefinition);
-    }
-
-    @Override
     public boolean containsBean(String beanName) {
         return this.beanFactory.containsBean(beanName);
     }
 
     @Override
-    public void registerBean(String beanName, Object bean) {
-        this.beanFactory.registerBean(beanName, bean);
+    public boolean isSingletonBean(String name) {
+        return false;
+    }
+
+    @Override
+    public boolean isProperty(String name) {
+        return false;
+    }
+
+    @Override
+    public Class<?> getType(String beanName) {
+        return null;
+    }
+
+    @Override
+    public void publishEvent(ApplicationEvent event) {
+
     }
 }
