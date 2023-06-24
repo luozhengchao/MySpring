@@ -4,6 +4,7 @@ import org.dom4j.Element;
 
 import com.luo.BeanDefinition;
 import com.luo.beans.factory.BeanFactory;
+import com.luo.beans.factory.SimpleBeanFactory;
 import com.luo.core.Resource;
 
 /**
@@ -12,10 +13,10 @@ import com.luo.core.Resource;
  */
 public class XmlBeanDefinitionReader {
 
-    private final BeanFactory beanFactory;
+    private final SimpleBeanFactory simpleBeanFactory;
 
-    public XmlBeanDefinitionReader(BeanFactory beanFactory) {
-        this.beanFactory = beanFactory;
+    public XmlBeanDefinitionReader(SimpleBeanFactory simpleBeanFactory) {
+        this.simpleBeanFactory = simpleBeanFactory;
     }
 
     public void loadBeanDefinitions(Resource resource) {
@@ -25,7 +26,7 @@ public class XmlBeanDefinitionReader {
             String beanName = element.attributeValue("class");
 
             BeanDefinition beanDefinition = new BeanDefinition(beanId, beanName);
-            this.beanFactory.registerBeanDefinition(beanDefinition);
+            this.simpleBeanFactory.registerBeanDefinition(beanDefinition);
         }
     }
 

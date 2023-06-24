@@ -1,15 +1,9 @@
 package com.luo.context;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
 
 import com.luo.BeanDefinition;
 import com.luo.beans.BeansException;
@@ -34,7 +28,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
 
     public ClassPathXmlApplicationContext(String fileName) {
         Resource resource = new ClassPathXmlResource(fileName);
-        BeanFactory beanFactory = new SimpleBeanFactory();
+        SimpleBeanFactory beanFactory = new SimpleBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions(resource);
         this.beanFactory = beanFactory;
@@ -50,10 +44,19 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
         return this.beanFactory.getBean(beanName);
     }
 
+
     @Override
     public void registerBeanDefinition(BeanDefinition beanDefinition) {
         this.beanFactory.registerBeanDefinition(beanDefinition);
     }
 
+    @Override
+    public boolean containsBean(String beanName) {
+        return this.beanFactory.containsBean(beanName);
+    }
 
+    @Override
+    public void registerBean(String beanName, Object bean) {
+        this.beanFactory.registerBean(beanName, bean);
+    }
 }

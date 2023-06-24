@@ -13,4 +13,8 @@ public interface BeanFactory {
 
     void registerBeanDefinition(BeanDefinition beanDefinition);
 
+    boolean containsBean(String beanName);
+
+    void registerBean(String beanName, Object bean);
+
 }
