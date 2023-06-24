@@ -1,7 +1,7 @@
 package com.luo;
 
-import com.luo.AService;
-import com.luo.ClassPathXmlApplicationContext;
+import com.luo.beans.BeansException;
+import com.luo.context.ClassPathXmlApplicationContext;
 
 /**
  * @author LZC
@@ -9,7 +9,7 @@ import com.luo.ClassPathXmlApplicationContext;
  */
 public class Test1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BeansException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
 
         AService aService = (AService) ctx.getBean("aService");
