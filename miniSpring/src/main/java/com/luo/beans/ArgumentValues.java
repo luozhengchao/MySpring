@@ -24,8 +24,8 @@ public class ArgumentValues {
         return this.indexedArgumentValues.containsKey(index);
     }
 
-    public void addGenericArgumentValue(Object value, String type) {
-        this.genericArgumentValues.add(new ArgumentValue(value, type));
+    public void addGenericArgumentValue(Object value, String type, String name) {
+        this.genericArgumentValues.add(new ArgumentValue(value, type, name));
     }
 
     public int getArgumentCount() {

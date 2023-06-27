@@ -27,8 +27,8 @@ public class PropertyValues {
         this.propertyValueList.add(value);
     }
 
-    public void addPropertyValue(String propertyName, Object value) {
-        this.propertyValueList.add(new PropertyValue(propertyName, value));
+    public void addPropertyValue(String type, String name, Object value) {
+        this.propertyValueList.add(new PropertyValue(type, name, value));
     }
 
     public void removePropertyValue(PropertyValue pv) {
