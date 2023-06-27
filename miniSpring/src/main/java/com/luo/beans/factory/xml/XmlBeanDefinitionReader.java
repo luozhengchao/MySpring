@@ -36,7 +36,7 @@ public class XmlBeanDefinitionReader {
 
             //处理properties 和 args
             var propertyValues = new PropertyValues();
-            var propertyElements = (List<Element>) element.elements("properties");
+            var propertyElements = (List<Element>) element.elements("property");
             for (Element property : propertyElements) {
                 var pType = property.attributeValue("type");
                 var pName = property.attributeValue("name");
