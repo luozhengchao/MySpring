@@ -1,3 +1,5 @@
 /.idea/
 
 *.class
+/miniSpring/.gradle/
+/miniSpring/build/
